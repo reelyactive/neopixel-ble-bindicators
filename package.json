@@ -1,0 +1,42 @@
+{
+  "name": "neopixel-ble-bindicators",
+  "homepage": "https://github.com/reelyactive/neopixel-ble-bindicators/",
+  "author": {
+    "name": "reelyActive",
+    "email": "info@reelyactive.com"
+  },
+  "description": "REST API to light up individual NeoPixels associated with a specific cart/shelf/bin via a Bluetooth Low Energy link to a microcontroller.  We believe in an open Internet of Things.",
+  "keywords": [
+    "reelyActive",
+    "neopixels",
+    "bindicators",
+    "Bluetooth Low Energy",
+    "API"
+  ],
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "main": "./lib/neopixelblebindicators.js",
+  "scripts": {
+    "start": "node bin/neopixel-ble-bindicators"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reelyactive/neopixel-ble-bindicators.git"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "@abandonware/noble": "^1.9.2-23"
+  },
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/reelyactive/neopixel-ble-bindicators/issues"
+  },
+  "contributors": [
+    {
+      "name": "Jeffrey Dungen"
+    }
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+const http = require('http');
+const express = require('express');
+const NeopixelBleBindicators = require('../lib/neopixelblebindicators.js');
+
+
+const PORT = process.env.PORT || 3000;
+
+
+let app = express();
+app.use(express.json());
+
+let server = http.createServer(app);
+server.listen(PORT, () => {
+  console.log('neopixel-ble-bindicators instance is listening on port', PORT);
+});
+
+const options = { app: app };
+
+let bindicators = new NeopixelBleBindicators(options);
