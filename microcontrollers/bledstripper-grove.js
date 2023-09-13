@@ -5,7 +5,7 @@
 
 const COMMAND_CLEAR_STRIP = 0x00;
 const COMMAND_WRITE_STRIP = 0x01;
-const EXPECTED_STRIP_LENGTH = 256;
+const EXPECTED_STRIP_LENGTH = 512;
 
 const STRIP_PINS = [ D12, D13, D14, D15 ];
 
@@ -36,9 +36,9 @@ function handleWriteStrip(message) {
 
   let rgbArray = new Uint8ClampedArray(EXPECTED_STRIP_LENGTH * 3).fill(0);
 
-  for(let ledIndex = startLedIndex; ledIndex < endLedIndex; ledIndex++) {
-    rgbArray[ledIndex * 3] = message[6];       // Red
-    rgbArray[(ledIndex * 3) + 1] = message[7]; // Green
+  for(let ledIndex = startLedIndex; ledIndex <= endLedIndex; ledIndex++) {
+    rgbArray[ledIndex * 3] = message[7];       // Green
+    rgbArray[(ledIndex * 3) + 1] = message[6]; // Red
     rgbArray[(ledIndex * 3) + 2] = message[8]; // Blue
   }
   require("neopixel").write(pin, rgbArray);
