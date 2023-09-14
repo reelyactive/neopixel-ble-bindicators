@@ -11,7 +11,7 @@ Clone this repository, install package dependencies with `npm install`, and then
 
     npm start
 
-__neopixel-ble-bindicators__ will attempt to connect with a Bluetooth Low Energy microcontroller advertising the bindicators service, and accept requests to configure via API any LED strips connected to that microcontroller.
+__neopixel-ble-bindicators__ will attempt to connect with the Bluetooth Low Energy microcontroller defined in the config/bluetooth.json file, and accept requests to configure via API any LED strips connected to that microcontroller.
 
 
 REST API
@@ -78,6 +78,14 @@ The first line of the file is ignored, and therefore typically used as a header 
 
 The line corresponding with the table above is as follows:
     "1",2,1000,0,60,true,0,...,920
+
+### bluetooth.json
+
+The bluetooth.json file defines the address of the Bluetooth Low Energy LED driver with which to connect, as follows:
+
+    {
+      "peripheralAddress": "b1:ed:57:21:44:e7"
+    }
 
 
 License
