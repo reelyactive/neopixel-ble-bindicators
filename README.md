@@ -98,6 +98,37 @@ The bluetooth.json file defines the address of the Bluetooth Low Energy LED driv
     }
 
 
+Over-the-Air Protocol
+---------------------
+
+__neopixel-ble-bindicators__ translates API requests into binary messages, according to the following protocol, which are written to the LED Strips characteristic of the bindicators service (Bluetooth GATT).
+
+### Clear Strip
+
+The Clear Strip command instructs the microcontroller to extinguish all LEDs on the given strip.
+
+| Byte offset | Description                                       |
+|:------------|:--------------------------------------------------|
+| 0           | 0x00 (Clear Strip command)                        |
+| 1           | Strip id (0-255)                                  |
+
+### Write Strip
+
+The Write Strip command instructs the microcontroller to illuminate a given range of LEDs with a specific RGB value.
+
+| Byte offset | Description                                       |
+|:------------|:--------------------------------------------------|
+| 0           | 0x01 (Write Strip command)                        |
+| 1           | Strip id (0-255)                                  |
+| 2           | 16-bit offset of first LED (0x0000-0xffff)        |
+| 4           | 16-bit offset of last LED (0x0000-0xffff)         |
+| 6           | Red intensity (0 to 255)                          |
+| 7           | Green intensity (0 to 255)                        |
+| 8           | Blue intensity (0 to 255)                         |
+| 9           | 16-bit strip length (0x0000-0xffff)               |
+| 11          | Option (reserved for future use) (0-255)          |
+
+
 License
 -------
 
